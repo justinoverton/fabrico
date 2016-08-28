@@ -1,8 +1,8 @@
 {
   "name": "fabrico",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Content generation for world-building, RPGs, stories, and more.",
-  "main": "./modules/fabrico.js",
+  "main": "./dist/fabrico.js",
   "scripts": {
     "test": "mocha"
   },

@@ -11,9 +11,24 @@ Content generation for world-building, RPGs, stories, and more.
     
 ## usage
 
+See [fantasy.js](./blob/master/modules/fantasy.js) for in-depth details.
+
+```javascript
+
+var fantasy = require('fabrico/dist/fantasy');
+console.log(fantasy.character.getItem());
+
 ```
+Outputs something similar to
 
-todo
-
-
+```json
+{
+    "name":"Marel",
+    "race":"half-elf",
+    "gender":"male",
+    "eyes":"blue",
+    "hair":"gray",
+    "profession":"carpenter",
+    "inventory":["dagger","ring"]
+}
 ```
