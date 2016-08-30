@@ -16,7 +16,7 @@ See [fantasy.js](./blob/master/modules/fantasy.js) for in-depth details.
 ```javascript
 
 var fantasy = require('fabrico/dist/fantasy');
-console.log(fantasy.character.getItem());
+console.log(fantasy.character.get());
 
 ```
 Outputs something similar to
