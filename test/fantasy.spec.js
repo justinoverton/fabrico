@@ -12,7 +12,7 @@ describe('Fantasy Tests', function() {
         //override PRNG with a known seeded one
         fabrico.seedPrng(seed);
         
-        let c = fantasy.character.getItem();
+        let c = fantasy.character.get();
         let str = JSON.stringify(c);
         
         str.should.equal('{"name":"Ganelusarc Veriust","race":"human","gender":"female","eyes":"blue","hair":"white","profession":"carpenter","inventory":["necklace"]}');

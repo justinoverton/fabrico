@@ -1,8 +1,7 @@
 'use strict'
 
 const fabrico = require('./fabrico');
-
-let name = exports.name = fabrico.markov(require('./names/roman-name'));
+let name = exports.name = fabrico.markov(require('./data/names/roman-name'));
 let gender = exports.gender = fabrico.list(['male', 'female']);
 
 let humanEyes = fabrico.list(['brown', 'blue', 'green', 'hazel']);
@@ -21,7 +20,7 @@ let commonInventory = fabrico.list(['dagger', 'necklace', 'ring']).repeat(0, 3);
 let professionInventory = {
     drunkard: fabrico.list(['beer', 'ale', 'whiskey']),
     wizard: fabrico.tokens('spellbook', 
-                           fabrico.literal('scrollcase').repeat(0, 1),
+                           fabrico.literal('scrollcase').flip(),
                            fabrico.list(['quarterstaff', 'wand', 'crossbow'])),
     fighter: fabrico.tokens('armor', 
                        fabrico.literal('shield').repeat(0, 1),
@@ -33,7 +32,7 @@ let professionInventory = {
 
 let inventory = function(char) {
     
-    let ret = commonInventory.getItem();
+    let ret = commonInventory.get();
     let prof = char.profession;
     if(!prof)
         return ret;
@@ -42,7 +41,7 @@ let inventory = function(char) {
     if(!other)
         return ret;
     
-    return ret.concat(other.getItem());
+    return ret.concat(other.get());
 };
 
 let human = exports.human = fabrico.map({name: name, race: 'human', gender: gender, eyes: humanEyes, hair: hair, profession: profession, inventory: inventory});

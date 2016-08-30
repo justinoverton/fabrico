@@ -1,6 +1,6 @@
 {
   "name": "fabrico",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "Content generation for world-building, RPGs, stories, and more.",
   "main": "./dist/fabrico.js",
   "scripts": {
@@ -25,15 +25,14 @@
   },
   "homepage": "https://github.com/justinoverton/fabrico#readme",
   "dependencies": {
-    "definitely-random-data": "^0.1.3",
-    "seedrandom": "^2.4.2"
+    "definitely-random-data": "^0.2.3"
   },
   "devDependencies": {
     "babel-preset-es2015": "^6.14.0",
-    "babelify": "^7.3.0",
     "grunt": "^0.4.5",
-    "grunt-browserify": "^3.8.0",
+    "grunt-babel": "^6.0.0",
     "grunt-contrib-watch": "^0.6.1",
+    "load-grunt-tasks": "^3.5.2",
     "mocha": "^3.0.2",
     "should": "^11.1.0",
     "simple-mock": "^0.7.0"

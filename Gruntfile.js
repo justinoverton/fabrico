@@ -1,44 +1,32 @@
 module.exports = function (grunt) {
+   
+   require('load-grunt-tasks')(grunt);
+   
    grunt.initConfig({
-      browserify: {
-         dist: {
-            options: {
-               transform: [
-                  ["babelify"]
-               ],
-               browserifyOptions: {
-                  standalone: 'fabrico'
-               }
-            },
-            files: {
-               "./dist/fabrico.js": ["./modules/fabrico.js"]
-            }
-         },
-         client: {
-           src: ['./modules/fantasy.js'],
-           dest: './dist/fantasy.js',
-           options: {
-             external: ['./fabrico'],
-             transform: [
-                  ["babelify"]
-               ],
-               browserifyOptions: {
-                  standalone: 'fantasy'
-               }
-           }
-         }
+      babel: {
+        options: {
+            sourceMap: true,
+            presets: ['es2015']
+        },
+        dist: {
+            files: [{
+                expand: true,
+                cwd: 'modules',
+                src: ['**/*.js'],
+                dest: 'dist',
+                ext: '.js'
+            }]
+        }
       },
       watch: {
          scripts: {
-            files: ["./modules/*.js"],
-            tasks: ["browserify"]
+            files: ["./modules/**/*.js"],
+            tasks: ["babel"]
          }
       }
    });
-
-   grunt.loadNpmTasks("grunt-browserify");
+   
    grunt.loadNpmTasks("grunt-contrib-watch");
-
    grunt.registerTask("default", ["watch"]);
-   grunt.registerTask("build", ["browserify"]);
+   grunt.registerTask("build", ["babel"]);
 };
